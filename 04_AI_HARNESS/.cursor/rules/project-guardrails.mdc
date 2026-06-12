@@ -1,0 +1,50 @@
+---
+description: Chef's Console project guardrails for AI agents
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# Chef's Console — Project Guardrails
+
+## Folder discipline
+
+- Frontend commands: run from `frontend/`
+- Backend commands: run from `backend/` with venv activated
+- Admin commands: run from `admin/`
+- Do not mix paths or run backend Python without venv
+
+## Secrets
+
+- NEVER read, print, commit, or modify `.env` files
+- Use `[REDACTED]` in documentation and examples
+- Sample emails: `client@example.com`, `staff@example.com`
+
+## Multi-tenancy
+
+- Every database query for tenant data MUST include `restaurant_id` filter
+- Get `restaurant_id` from URL path, not from `user.restaurant_id` alone
+- Do not create new unscoped routers like `/enquiries` without restaurant prefix
+
+## Authorization
+
+- All POST, PUT, PATCH, DELETE routes require `require_permission(...)`
+- Call `verify_restaurant_access(restaurant_id, current_user)` on scoped routes
+- UI permission guards are not sufficient — backend must enforce
+
+## Scope control
+
+- Implement only what the current task specifies
+- No drive-by refactors, dependency upgrades, or formatting unrelated files
+- Do not restart servers manually — they auto-reload on save
+
+## Testing
+
+- Run pytest from `backend/` after backend changes
+- Run `npm run lint` from `frontend/` after frontend changes
+
+## Reference docs
+
+- Teardown specs: `teardown-sample/02_BUILD_SPEC/`
+- Tasks: `teardown-sample/03_WORK_BREAKDOWN/tasks/`
+- Audit findings: `teardown-sample/00_AUDIT/`

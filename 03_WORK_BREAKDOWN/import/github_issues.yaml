@@ -1,0 +1,90 @@
+# GitHub Issues Export
+
+Structured issue list for import into GitHub Projects. Labels: `epic`, `feature`, `task`, `priority:critical`, `priority:high`, `epic-06`, etc.
+
+```yaml
+issues:
+  - title: "[EPIC-06] TASK-06-01-01 Remove standalone enquiries router"
+    labels: [task, priority:critical, epic-06]
+    body_file: tasks/EPIC-06/TASK-06-01-01_remove_standalone_enquiries_router.md
+    milestone: "Now"
+
+  - title: "[EPIC-06] TASK-06-05-01 Fix DEBUG handler and encrypt OAuth tokens"
+    labels: [task, priority:critical, epic-06]
+    body_file: tasks/EPIC-06/TASK-06-05-01_debug_handler_oauth_encryption.md
+    milestone: "Now"
+
+  - title: "[EPIC-06] TASK-06-01-02 Cross-tenant integration tests"
+    labels: [task, priority:critical, epic-06]
+    body_file: tasks/EPIC-06/TASK-06-01-02_cross_tenant_integration_tests.md
+    milestone: "Now"
+
+  - title: "[EPIC-05] TASK-05-01-01 Audit all routes for require_permission"
+    labels: [task, priority:critical, epic-05]
+    body_file: tasks/EPIC-05/TASK-05-01-01_audit_require_permission.md
+    milestone: "Now"
+
+  - title: "[EPIC-05] TASK-05-04-01 Backend subscription middleware"
+    labels: [task, priority:high, epic-05]
+    body_file: tasks/EPIC-05/TASK-05-04-01_subscription_middleware.md
+    milestone: "Now"
+
+  - title: "[EPIC-02] TASK-02-03-01 Atomic enquiry convert"
+    labels: [task, priority:critical, epic-02]
+    body_file: tasks/EPIC-02/TASK-02-03-01_enquiry_convert_atomic.md
+    milestone: "Next"
+
+  - title: "[EPIC-06] TASK-06-03-01 pytest structure"
+    labels: [task, priority:high, epic-06]
+    body_file: tasks/EPIC-06/TASK-06-03-01_pytest_structure.md
+    milestone: "Next"
+
+  - title: "[EPIC-06] TASK-06-03-02 GitHub Actions CI"
+    labels: [task, priority:high, epic-06]
+    body_file: tasks/EPIC-06/TASK-06-03-02_github_actions_ci.md
+    milestone: "Next"
+
+  - title: "[EPIC-04] TASK-04-02-01 Extract email worker"
+    labels: [task, priority:high, epic-04]
+    body_file: tasks/EPIC-04/TASK-04-02-01_extract_email_worker.md
+    milestone: "Next"
+
+  - title: "[EPIC-06] TASK-06-02-01 Consolidate restaurant routers"
+    labels: [task, priority:medium, epic-06]
+    body_file: tasks/EPIC-06/TASK-06-02-01_consolidate_restaurant_routers.md
+    milestone: "Next"
+
+  - title: "[EPIC-03] TASK-03-01-01 Bookings list N+1 optimization"
+    labels: [task, priority:high, epic-03]
+    body_file: tasks/EPIC-03/TASK-03-01-01_bookings_list_optimize.md
+    milestone: "Next"
+
+  - title: "[EPIC-06] TASK-06-04-01 Compound indexes and migrations"
+    labels: [task, priority:medium, epic-06]
+    body_file: tasks/EPIC-06/TASK-06-04-01_compound_indexes_migrations.md
+    milestone: "Next"
+
+  - title: "[EPIC-06] TASK-06-06-01 OpenAPI type codegen"
+    labels: [task, priority:medium, epic-06]
+    body_file: tasks/EPIC-06/TASK-06-06-01_openapi_type_codegen.md
+    milestone: "Later"
+
+  - title: "[EPIC-04] TASK-04-04-01 AI daily cost cap"
+    labels: [task, priority:high, epic-04]
+    body_file: tasks/EPIC-04/TASK-04-04-01_ai_cost_cap.md
+    milestone: "Later"
+
+  - title: "[EPIC-01] TASK-01-01-01 JWT login refresh hardening"
+    labels: [task, priority:high, epic-01]
+    body_file: tasks/EPIC-01/TASK-01-01-01_jwt_login_refresh.md
+    milestone: "Next"
+```
+
+## Import script (example)
+
+```bash
+cd teardown-sample/03_WORK_BREAKDOWN
+# Manual: gh issue create --title "..." --body-file tasks/EPIC-06/TASK-06-01-01_remove_standalone_enquiries_router.md --label "priority:critical"
+```
+
+Create labels in GitHub first: `epic-01` … `epic-06`, `priority:critical`, `priority:high`, `priority:medium`.

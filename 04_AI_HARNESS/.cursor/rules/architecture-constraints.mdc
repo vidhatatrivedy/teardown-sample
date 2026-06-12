@@ -1,0 +1,47 @@
+---
+description: Architecture constraints for Chef's Console
+globs:
+  - backend/**/*
+  - frontend/**/*
+alwaysApply: false
+---
+
+# Architecture Constraints
+
+## API surface
+
+- ONE router per domain resource — no duplicate `restaurants` + `restaurants_enhanced` pattern for new work
+- Deprecate `enquiries_standalone` — use `/restaurants/{restaurant_id}/enquiries` only
+- Prefix all tenant resources: `/restaurants/{restaurant_id}/{resource}`
+
+## Data layer
+
+- Beanie `Document` for persistence; separate `Create`/`Update`/`Response` Pydantic models
+- String IDs in API responses; ObjectId internal only
+- Add indexes when adding new list/filter queries
+
+## Frontend
+
+- Types must match backend — prefer OpenAPI codegen over manual duplication
+- API calls through `apiClient` singleton — no raw fetch scattered in components
+- Restaurant context required for all dashboard data fetching
+
+## Background work
+
+- Email polling NOT in API process for new features — use worker entry point
+- Long-running tasks: job queue pattern, not blocking HTTP handler
+
+## AI integration
+
+- Cap input size to LLM endpoints
+- Return typed extraction responses, not raw dict
+- Log provider name and prompt version, not full customer PII
+
+## Error handling
+
+- Production 500 responses: generic message only
+- Log full exception server-side with request ID
+
+## Before merging structural changes
+
+Read affected audit dimension in `teardown-sample/00_AUDIT/` and confirm finding is addressed or explicitly deferred in task.
