@@ -1,6 +1,6 @@
 # Architecture Teardown — Chef's Console (Sample)
 
-This repository is a **complete Architecture Teardown deliverable** for [Chef's Console](https://chefsconsole.com){:target="_blank"}, a multi-tenant restaurant bulk-order booking platform. It documents what exists today, what's fragile, and the exact sequence to fix it.
+This repository is a **complete Architecture Teardown deliverable** for  <a href="https://chefsconsole.com" target="_blank">Chef's Console</a>, a multi-tenant restaurant bulk-order booking platform. It documents what exists today, what's fragile, and the exact sequence to fix it.
 
 **Audience:** Non-technical founders (what to do next) and senior engineers / AI coding agents (how to execute).
 
